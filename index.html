@@ -20,15 +20,11 @@ body{min-height:100vh}
 a{color:var(--blue);text-decoration:none}
 .page{display:none;min-height:100vh;flex-direction:column}
 .page.active{display:flex}
-
-/* HEADER */
 .pub-header{background:var(--white);border-bottom:1px solid var(--border);padding:0 24px;height:64px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
 .logo{font-weight:700;font-size:1.05rem;color:var(--ink)}
 .status-badge{display:flex;align-items:center;gap:7px;font-size:.8rem;color:var(--text-muted);font-weight:500}
 .status-dot{width:8px;height:8px;border-radius:50%;background:var(--green);animation:pulse-dot 2s infinite}
 @keyframes pulse-dot{0%,100%{box-shadow:0 0 0 0 rgba(5,150,105,.4)}50%{box-shadow:0 0 0 5px rgba(5,150,105,0)}}
-
-/* HERO */
 .hero{padding:64px 24px 48px;text-align:center;max-width:640px;margin:0 auto;width:100%}
 .hero h1{font-size:clamp(1.75rem,4vw,2.5rem);font-weight:800;color:var(--ink);line-height:1.2;margin-bottom:14px}
 .hero p{color:var(--text-muted);font-size:1.05rem;margin-bottom:36px}
@@ -41,14 +37,10 @@ a{color:var(--blue);text-decoration:none}
 .btn-search:active{transform:scale(.98)}
 .search-hint{font-size:.8rem;color:var(--text-light);margin-top:10px}
 .result-area{max-width:660px;margin:0 auto;padding:0 24px 48px;width:100%}
-
-/* NOT FOUND */
 .not-found{background:var(--white);border-radius:var(--radius);padding:32px;text-align:center;box-shadow:var(--shadow);border:1px solid var(--border)}
 .not-found .nf-icon{font-size:2.5rem;margin-bottom:12px}
 .not-found p{color:var(--text-muted);font-size:.95rem}
 .not-found p strong{display:block;font-size:1rem;color:var(--ink);margin-bottom:6px;font-weight:600}
-
-/* TRACKING CARD */
 .track-card{background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow-md);border:1px solid var(--border);overflow:hidden;animation:fadeUp .35s ease}
 @keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
 .track-header{padding:24px 28px;border-bottom:1px solid var(--border)}
@@ -56,8 +48,6 @@ a{color:var(--blue);text-decoration:none}
 .track-meta .sub{font-size:.85rem;color:var(--text-muted);margin-bottom:10px}
 .track-code{font-family:'Courier New',monospace;font-size:.9rem;font-weight:700;color:var(--blue);background:#eff6ff;padding:3px 10px;border-radius:5px;letter-spacing:.5px;display:inline-block}
 .track-body{padding:24px 28px}
-
-/* TIMELINE */
 .timeline{position:relative;padding-left:28px}
 .timeline::before{content:'';position:absolute;left:9px;top:8px;bottom:8px;width:2px;background:var(--border)}
 .tl-item{position:relative;margin-bottom:24px}
@@ -76,12 +66,8 @@ a{color:var(--blue);text-decoration:none}
 @keyframes pulse-badge{0%,100%{opacity:1}50%{opacity:.7}}
 .tl-badge.pending{background:#f3f4f6;color:#9ca3af}
 .tl-desc{font-size:.82rem;color:var(--text-muted);line-height:1.5}
-
-/* FOOTER */
 .pub-footer{margin-top:auto;border-top:1px solid var(--border);padding:20px 24px;background:var(--white)}
 .footer-only{font-size:11.5px;color:var(--text-light);font-weight:400;text-align:center}
-
-/* ADMIN / LEADS */
 .admin-wrap{min-height:100vh;display:flex;flex-direction:column}
 .topnav{background:var(--ink);color:#fff;padding:0 24px;height:60px;display:flex;align-items:center;justify-content:space-between;gap:16px;position:sticky;top:0;z-index:100}
 .topnav-logo{font-weight:700;font-size:1rem;color:#fff;display:flex;align-items:center;gap:8px}
@@ -93,8 +79,6 @@ a{color:var(--blue);text-decoration:none}
 .btn-nav.danger{background:rgba(239,68,68,.15);color:#fca5a5}
 .btn-nav.danger:hover{background:rgba(239,68,68,.25)}
 .admin-content{flex:1;padding:32px 24px;max-width:1200px;margin:0 auto;width:100%}
-
-/* LOGIN */
 .login-screen{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px;background:var(--bg)}
 .login-card{background:var(--white);border-radius:var(--radius);padding:40px;max-width:380px;width:100%;box-shadow:var(--shadow-md);border:1px solid var(--border);animation:fadeUp .3s ease}
 .login-card h2{font-size:1.3rem;font-weight:700;color:var(--ink);margin-bottom:6px}
@@ -106,14 +90,10 @@ a{color:var(--blue);text-decoration:none}
 .error-msg{font-size:.82rem;color:#dc2626;margin-top:8px;font-weight:500}
 .btn-primary{width:100%;padding:12px;background:var(--blue);color:#fff;border:none;border-radius:var(--radius-sm);font-family:inherit;font-size:.95rem;font-weight:600;cursor:pointer;transition:background .2s}
 .btn-primary:hover{background:#1d4ed8}
-
-/* STATS */
 .stats-row{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:14px;margin-bottom:28px}
 .stat-card{background:var(--white);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow);border:1px solid var(--border)}
 .stat-card .stat-val{font-size:1.8rem;font-weight:800;color:var(--ink);line-height:1}
 .stat-card .stat-lbl{font-size:.75rem;color:var(--text-muted);font-weight:500;margin-top:4px}
-
-/* SECTION TOP */
 .section-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;gap:12px;flex-wrap:wrap}
 .section-top h2{font-size:1.1rem;font-weight:700;color:var(--ink)}
 .btn-sm{padding:9px 18px;border-radius:var(--radius-sm);font-family:inherit;font-size:.82rem;font-weight:600;cursor:pointer;transition:background .2s,border-color .2s;border:none}
@@ -121,13 +101,9 @@ a{color:var(--blue);text-decoration:none}
 .btn-sm.primary:hover{background:#1d4ed8}
 .btn-sm.outline{background:var(--white);color:var(--ink);border:1.5px solid var(--border)}
 .btn-sm.outline:hover{border-color:var(--blue);color:var(--blue)}
-
-/* FILTERS */
 .filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
 .filter-btn{padding:6px 14px;border-radius:20px;font-family:inherit;font-size:.78rem;font-weight:600;cursor:pointer;border:1.5px solid var(--border);background:var(--white);color:var(--text-muted);transition:all .2s}
 .filter-btn.active{background:var(--blue);color:#fff;border-color:var(--blue)}
-
-/* TABLE */
 .table-wrap{background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow);border:1px solid var(--border);overflow:hidden}
 .data-table{width:100%;border-collapse:collapse;font-size:.85rem}
 .data-table th{padding:12px 16px;text-align:left;font-size:.75rem;font-weight:600;color:var(--text-muted);text-transform:uppercase;letter-spacing:.5px;border-bottom:2px solid var(--border);background:#fafbfc;white-space:nowrap}
@@ -135,8 +111,6 @@ a{color:var(--blue);text-decoration:none}
 .data-table tr:last-child td{border-bottom:none}
 .data-table tr:hover td{background:#fafbff}
 .empty-row td{text-align:center;color:var(--text-muted);padding:40px}
-
-/* PILLS */
 .pill{display:inline-flex;align-items:center;padding:3px 10px;border-radius:20px;font-size:.72rem;font-weight:600;white-space:nowrap}
 .pill.transit{background:#dbeafe;color:#1e40af}
 .pill.ready{background:#d1fae5;color:#065f46}
@@ -146,12 +120,8 @@ a{color:var(--blue);text-decoration:none}
 .pill.urgent{background:#fef3c7;color:#92400e}
 .pill.sent{background:#d1fae5;color:#065f46}
 .pill.not-sent{background:#fef3c7;color:#92400e}
-
-/* MINI PROGRESS */
 .mini-prog{height:5px;background:#e9eaf0;border-radius:100px;width:80px;overflow:hidden}
 .mini-prog-fill{height:100%;border-radius:100px;background:linear-gradient(90deg,var(--blue),#60a5fa)}
-
-/* ACTION BUTTONS */
 .action-btns{display:flex;gap:6px;flex-wrap:wrap}
 .act-btn{padding:5px 10px;border-radius:6px;font-family:inherit;font-size:.75rem;font-weight:600;cursor:pointer;border:none;transition:background .2s}
 .act-btn.copy{background:#eff6ff;color:var(--blue)}
@@ -160,8 +130,6 @@ a{color:var(--blue);text-decoration:none}
 .act-btn.view:hover{background:#d1fae5}
 .act-btn.del{background:#fef2f2;color:#dc2626}
 .act-btn.del:hover{background:#fee2e2}
-
-/* MODAL */
 .modal-overlay{position:fixed;inset:0;background:rgba(13,15,26,.45);z-index:500;display:flex;align-items:center;justify-content:center;padding:24px;opacity:0;pointer-events:none;transition:opacity .25s}
 .modal-overlay.open{opacity:1;pointer-events:all}
 .modal{background:var(--white);border-radius:var(--radius);max-width:520px;width:100%;max-height:90vh;overflow-y:auto;box-shadow:var(--shadow-md);transform:scale(.94) translateY(12px);transition:transform .25s cubic-bezier(.4,0,.2,1)}
@@ -175,16 +143,12 @@ a{color:var(--blue);text-decoration:none}
 .code-box{background:#eff6ff;border:2px solid #bfdbfe;border-radius:var(--radius-sm);padding:14px 18px;text-align:center;margin:16px 0}
 .code-box .code-label{font-size:.75rem;color:var(--text-muted);font-weight:600;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px}
 .code-box .code-val{font-family:'Courier New',monospace;font-size:1.4rem;font-weight:700;color:var(--blue);letter-spacing:2px}
-
-/* TOAST */
 .toast-container{position:fixed;bottom:28px;right:28px;z-index:999;display:flex;flex-direction:column;gap:8px;pointer-events:none}
 .toast{background:var(--ink);color:#fff;padding:12px 20px;border-radius:var(--radius-sm);font-size:.85rem;font-weight:500;box-shadow:var(--shadow-md);transform:translateY(16px);opacity:0;transition:all .3s cubic-bezier(.4,0,.2,1);pointer-events:all;max-width:320px}
 .toast.show{transform:translateY(0);opacity:1}
 .toast.success{background:var(--green)}
 .toast.error{background:#dc2626}
-
 .notes-cell{max-width:160px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--text-muted);font-size:.82rem}
-
 @media(max-width:640px){
   .pub-header,.topnav{padding:0 16px}
   .hero{padding:40px 16px 32px}
@@ -203,9 +167,7 @@ a{color:var(--blue);text-decoration:none}
 <div class="page" id="page-public">
   <header class="pub-header">
     <div class="logo">ShipTrack International</div>
-    <div class="status-badge">
-      <span class="status-dot"></span>Sistema activo
-    </div>
+    <div class="status-badge"><span class="status-dot"></span>Sistema activo</div>
   </header>
   <main style="flex:1">
     <div class="hero">
@@ -242,7 +204,7 @@ a{color:var(--blue);text-decoration:none}
     <nav class="topnav">
       <div class="topnav-logo"><div class="tl-icon">📦</div>Admin</div>
       <div class="topnav-actions">
-        <button class="btn-nav ghost" onclick="window.location.hash='#/leads'">CRM Leads</button>
+        <button class="btn-nav ghost" onclick="navigate('/leads')">CRM Leads</button>
         <button class="btn-nav danger" onclick="adminLogout()">Salir</button>
       </div>
     </nav>
@@ -284,7 +246,7 @@ a{color:var(--blue);text-decoration:none}
     <nav class="topnav">
       <div class="topnav-logo"><div class="tl-icon">👥</div>CRM Leads</div>
       <div class="topnav-actions">
-        <button class="btn-nav ghost" onclick="window.location.hash='#/admin'">Admin</button>
+        <button class="btn-nav ghost" onclick="navigate('/admin')">Admin</button>
         <button class="btn-nav danger" onclick="leadsLogout()">Salir</button>
       </div>
     </nav>
@@ -318,14 +280,8 @@ a{color:var(--blue);text-decoration:none}
       <button class="modal-close" onclick="closeOrderModal()">×</button>
     </div>
     <div class="modal-body">
-      <div class="form-group">
-        <label>Nombre completo del cliente</label>
-        <input type="text" id="om-name" placeholder="Ej: Juan Pérez">
-      </div>
-      <div class="form-group">
-        <label>Fecha de compra</label>
-        <input type="date" id="om-date">
-      </div>
+      <div class="form-group"><label>Nombre completo del cliente</label><input type="text" id="om-name" placeholder="Ej: Juan Pérez"></div>
+      <div class="form-group"><label>Fecha de compra</label><input type="date" id="om-date"></div>
       <div class="form-group">
         <label>Producto</label>
         <select id="om-product" onchange="updateOrderCode()">
@@ -336,10 +292,7 @@ a{color:var(--blue);text-decoration:none}
         </select>
       </div>
       <div id="om-code-box" style="display:none">
-        <div class="code-box">
-          <div class="code-label">Código de tracking generado</div>
-          <div class="code-val" id="om-code-val"></div>
-        </div>
+        <div class="code-box"><div class="code-label">Código de tracking generado</div><div class="code-val" id="om-code-val"></div></div>
       </div>
     </div>
     <div class="modal-footer">
@@ -357,52 +310,17 @@ a{color:var(--blue);text-decoration:none}
       <button class="modal-close" onclick="closeLeadModal()">×</button>
     </div>
     <div class="modal-body">
-      <div class="form-group">
-        <label>Nombre completo</label>
-        <input type="text" id="lm-name" placeholder="Ej: María García">
-      </div>
-      <div class="form-group">
-        <label>Fecha de la venta</label>
-        <input type="date" id="lm-date">
-      </div>
-      <div class="form-group">
-        <label>¿Qué compró?</label>
-        <input type="text" id="lm-product" placeholder="Ej: Moto Honda 125cc">
-      </div>
-      <div class="form-group">
-        <label>Financiera</label>
-        <input type="text" id="lm-financiera" placeholder="Ej: Banco Nacional">
-      </div>
+      <div class="form-group"><label>Nombre completo</label><input type="text" id="lm-name" placeholder="Ej: María García"></div>
+      <div class="form-group"><label>Fecha de la venta</label><input type="date" id="lm-date"></div>
+      <div class="form-group"><label>¿Qué compró?</label><input type="text" id="lm-product" placeholder="Ej: Moto Honda 125cc"></div>
+      <div class="form-group"><label>Financiera</label><input type="text" id="lm-financiera" placeholder="Ej: Banco Nacional"></div>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
-        <div class="form-group">
-          <label>Precio de venta</label>
-          <input type="text" id="lm-price" placeholder="Ej: $3,500">
-        </div>
-        <div class="form-group">
-          <label>Comisión del vendedor</label>
-          <input type="text" id="lm-commission" placeholder="Ej: $350">
-        </div>
+        <div class="form-group"><label>Precio de venta</label><input type="text" id="lm-price" placeholder="Ej: $3,500"></div>
+        <div class="form-group"><label>Comisión del vendedor</label><input type="text" id="lm-commission" placeholder="Ej: $350"></div>
       </div>
-      <div class="form-group">
-        <label>¿Ya se le envió el tracking?</label>
-        <select id="lm-tracking">
-          <option value="no">No</option>
-          <option value="si">Sí</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label>Estado del cliente</label>
-        <select id="lm-status">
-          <option value="feliz">😊 Feliz</option>
-          <option value="neutral">😐 Neutral</option>
-          <option value="molesto">😤 Molesto</option>
-          <option value="urgente">🔥 Urgente</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label>Notas</label>
-        <textarea id="lm-notes" rows="3" placeholder="Observaciones, comentarios..."></textarea>
-      </div>
+      <div class="form-group"><label>¿Ya se le envió el tracking?</label><select id="lm-tracking"><option value="no">No</option><option value="si">Sí</option></select></div>
+      <div class="form-group"><label>Estado del cliente</label><select id="lm-status"><option value="feliz">😊 Feliz</option><option value="neutral">😐 Neutral</option><option value="molesto">😤 Molesto</option><option value="urgente">🔥 Urgente</option></select></div>
+      <div class="form-group"><label>Notas</label><textarea id="lm-notes" rows="3" placeholder="Observaciones, comentarios..."></textarea></div>
     </div>
     <div class="modal-footer">
       <button class="btn-sm outline" onclick="closeLeadModal()">Cancelar</button>
@@ -413,152 +331,92 @@ a{color:var(--blue);text-decoration:none}
 
 <div class="toast-container" id="toast-container"></div>
 
-<!-- Supabase -->
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
-// ══════════════════════════════════════════════════════════════════════════════
-//  ⚙️  CONFIGURACIÓN — pegá acá tus datos de Supabase
-// ══════════════════════════════════════════════════════════════════════════════
+// ── CONFIG ────────────────────────────────────────────────────────────────────
 const SUPABASE_URL      = 'https://ygihbsbokwnwqxgkjpfn.supabase.co';
 const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InlnaWhic2Jva3dud3F4Z2tqcGZuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzU1ODQwNDUsImV4cCI6MjA5MTE2MDA0NX0._4QWUFVfvMXscbmteRloQuDtCWR-uspcFyFDwSIBG38';
-// ══════════════════════════════════════════════════════════════════════════════
 
 const { createClient } = supabase;
 const db = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
 // ── PRODUCTOS ─────────────────────────────────────────────────────────────────
 const PRODUCTS = {
-  moto: {
-    label:'Moto', icon:'🏍️', totalDays:70, prefix:'MT',
-    stages:[
-      {day:0,  name:'Pedido confirmado',   desc:'Tu pedido fue registrado y el pago confirmado. Estamos coordinando el proceso de exportación.'},
-      {day:6,  name:'Proceso de título',   desc:'Estamos gestionando la documentación y el título del vehículo para habilitar la exportación.'},
-      {day:16, name:'Listo para despacho', desc:'La documentación está completa. Tu pedido está siendo preparado para salir.'},
-      {day:22, name:'En tránsito',         desc:'Tu pedido está en camino.'},
-      {day:42, name:'Proceso aduanal',     desc:'Tu pedido llegó a destino y se encuentra en proceso de revisión y despacho aduanal.'},
-      {day:70, name:'Listo para entregar', desc:'Tu pedido completó el proceso aduanal y está listo. Nos comunicaremos para coordinar la entrega.'}
-    ]
-  },
-  triciclo: {
-    label:'Triciclo', icon:'🛵', totalDays:120, prefix:'TRI',
-    stages:[
-      {day:0,   name:'Pedido confirmado',   desc:'Tu pedido fue registrado y el pago confirmado. Estamos coordinando el proceso de exportación.'},
-      {day:7,   name:'Proceso de título',   desc:'Estamos gestionando la documentación y el título del vehículo para habilitar la exportación.'},
-      {day:20,  name:'Preparación técnica', desc:'El triciclo está siendo inspeccionado, configurado y empacado con los estándares requeridos para el traslado internacional.'},
-      {day:30,  name:'Listo para despacho', desc:'La documentación está completa. Tu pedido está siendo preparado para salir.'},
-      {day:38,  name:'En tránsito',         desc:'Tu pedido está en camino.'},
-      {day:60,  name:'Proceso aduanal',     desc:'Tu pedido llegó a destino y se encuentra en proceso de revisión y despacho aduanal.'},
-      {day:110, name:'Coordinando entrega', desc:'El pedido fue liberado de aduana. Estamos coordinando la logística de entrega a domicilio.'},
-      {day:120, name:'Listo para entregar', desc:'Tu pedido completó todo el proceso y está listo. Nos comunicaremos para confirmar la entrega.'}
-    ]
-  },
-  solar: {
-    label:'Kit Solar', icon:'☀️', totalDays:50, prefix:'SOL',
-    stages:[
-      {day:0,  name:'Pedido confirmado',   desc:'Tu pedido fue registrado y el pago confirmado. Estamos preparando tu kit solar.'},
-      {day:5,  name:'Preparación del kit', desc:'Estamos ensamblando y verificando todos los componentes de tu kit: paneles, inversor, baterías y cableado.'},
-      {day:12, name:'Listo para despacho', desc:'El kit está completo y documentado. Listo para salir.'},
-      {day:18, name:'En tránsito',         desc:'Tu pedido está en camino.'},
-      {day:33, name:'Proceso aduanal',     desc:'Tu pedido llegó a destino y se encuentra en proceso de revisión y despacho aduanal.'},
-      {day:50, name:'Listo para entregar', desc:'Tu pedido completó el proceso aduanal y está listo. Nos comunicaremos para coordinar la entrega.'}
-    ]
-  }
+  moto:{label:'Moto',icon:'🏍️',totalDays:70,prefix:'MT',stages:[
+    {day:0, name:'Pedido confirmado',   desc:'Tu pedido fue registrado y el pago confirmado. Estamos coordinando el proceso de exportación.'},
+    {day:6, name:'Proceso de título',   desc:'Estamos gestionando la documentación y el título del vehículo para habilitar la exportación.'},
+    {day:16,name:'Listo para despacho', desc:'La documentación está completa. Tu pedido está siendo preparado para salir.'},
+    {day:22,name:'En tránsito',         desc:'Tu pedido está en camino.'},
+    {day:42,name:'Proceso aduanal',     desc:'Tu pedido llegó a destino y se encuentra en proceso de revisión y despacho aduanal.'},
+    {day:70,name:'Listo para entregar', desc:'Tu pedido completó el proceso aduanal y está listo. Nos comunicaremos para coordinar la entrega.'}
+  ]},
+  triciclo:{label:'Triciclo',icon:'🛵',totalDays:120,prefix:'TRI',stages:[
+    {day:0,  name:'Pedido confirmado',   desc:'Tu pedido fue registrado y el pago confirmado. Estamos coordinando el proceso de exportación.'},
+    {day:7,  name:'Proceso de título',   desc:'Estamos gestionando la documentación y el título del vehículo para habilitar la exportación.'},
+    {day:20, name:'Preparación técnica', desc:'El triciclo está siendo inspeccionado, configurado y empacado con los estándares requeridos para el traslado internacional.'},
+    {day:30, name:'Listo para despacho', desc:'La documentación está completa. Tu pedido está siendo preparado para salir.'},
+    {day:38, name:'En tránsito',         desc:'Tu pedido está en camino.'},
+    {day:60, name:'Proceso aduanal',     desc:'Tu pedido llegó a destino y se encuentra en proceso de revisión y despacho aduanal.'},
+    {day:110,name:'Coordinando entrega', desc:'El pedido fue liberado de aduana. Estamos coordinando la logística de entrega a domicilio.'},
+    {day:120,name:'Listo para entregar', desc:'Tu pedido completó todo el proceso y está listo. Nos comunicaremos para confirmar la entrega.'}
+  ]},
+  solar:{label:'Kit Solar',icon:'☀️',totalDays:50,prefix:'SOL',stages:[
+    {day:0, name:'Pedido confirmado',   desc:'Tu pedido fue registrado y el pago confirmado. Estamos preparando tu kit solar.'},
+    {day:5, name:'Preparación del kit', desc:'Estamos ensamblando y verificando todos los componentes de tu kit: paneles, inversor, baterías y cableado.'},
+    {day:12,name:'Listo para despacho', desc:'El kit está completo y documentado. Listo para salir.'},
+    {day:18,name:'En tránsito',         desc:'Tu pedido está en camino.'},
+    {day:33,name:'Proceso aduanal',     desc:'Tu pedido llegó a destino y se encuentra en proceso de revisión y despacho aduanal.'},
+    {day:50,name:'Listo para entregar', desc:'Tu pedido completó el proceso aduanal y está listo. Nos comunicaremos para coordinar la entrega.'}
+  ]}
 };
 
 // ── SESIÓN ────────────────────────────────────────────────────────────────────
-let adminAuthed = false;
-let leadsAuthed = false;
-let orderFilter = 'all';
-let leadsStatusFilter = 'all';
-let leadsTrackFilter  = 'all';
+let adminAuthed=false, leadsAuthed=false;
+let orderFilter='all', leadsStatusFilter='all', leadsTrackFilter='all';
 
-// ── SUPABASE HELPERS ──────────────────────────────────────────────────────────
-async function fetchOrders() {
-  const {data,error} = await db.from('orders').select('*').order('created_at',{ascending:false});
-  if(error){toast('Error al cargar pedidos','error');return[];}
-  return data||[];
+// ── ROUTING (sin # — URLs limpias) ────────────────────────────────────────────
+function navigate(path){
+  history.pushState(null,'',path);
+  route();
 }
-async function insertOrder(o) {
-  const {error} = await db.from('orders').insert(o);
-  if(error){toast('Error al guardar pedido','error');return false;}
-  return true;
-}
-async function removeOrder(id) {
-  const {error} = await db.from('orders').delete().eq('id',id);
-  if(error){toast('Error al eliminar','error');return false;}
-  return true;
-}
-async function findOrderByCode(code) {
-  const {data} = await db.from('orders').select('*').ilike('code',code).limit(1);
-  return (data&&data.length>0)?data[0]:null;
-}
-async function countOrdersByProduct(product) {
-  const {count} = await db.from('orders').select('*',{count:'exact',head:true}).eq('product',product);
-  return count||0;
-}
-async function fetchLeads() {
-  const {data,error} = await db.from('leads').select('*').order('created_at',{ascending:false});
-  if(error){toast('Error al cargar leads','error');return[];}
-  return data||[];
-}
-async function insertLead(l) {
-  const {error} = await db.from('leads').insert(l);
-  if(error){toast('Error al guardar lead','error');return false;}
-  return true;
-}
-async function removeLead(id) {
-  const {error} = await db.from('leads').delete().eq('id',id);
-  if(error){toast('Error al eliminar','error');return false;}
-  return true;
-}
-
-// ── UTILS ─────────────────────────────────────────────────────────────────────
-function escHtml(s){
-  return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
-}
-function toast(msg,type=''){
-  const c=document.getElementById('toast-container');
-  const el=document.createElement('div');
-  el.className='toast'+(type?' '+type:'');
-  el.textContent=msg;
-  c.appendChild(el);
-  requestAnimationFrame(()=>requestAnimationFrame(()=>el.classList.add('show')));
-  setTimeout(()=>{el.classList.remove('show');setTimeout(()=>el.remove(),350);},2800);
-}
-function setLoading(id,cols){
-  document.getElementById(id).innerHTML=`<tr class="empty-row"><td colspan="${cols}">Cargando...</td></tr>`;
-}
-
-// ── ROUTING ───────────────────────────────────────────────────────────────────
 function route(){
-  const hash=window.location.hash||'#/';
+  const path=window.location.pathname;
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
-  if(hash.startsWith('#/admin')){
+  if(path==='/admin'||path.startsWith('/admin')){
     document.getElementById('page-admin').classList.add('active');
     adminAuthed?showAdminDash():showAdminLogin();
-  } else if(hash.startsWith('#/leads')){
+  } else if(path==='/leads'||path.startsWith('/leads')){
     document.getElementById('page-leads').classList.add('active');
     leadsAuthed?showLeadsDash():showLeadsLogin();
   } else {
     document.getElementById('page-public').classList.add('active');
-    const m=hash.match(/[?&]q=([^&]+)/);
-    if(m){
-      document.getElementById('track-input').value=decodeURIComponent(m[1]);
-      setTimeout(searchTracking,80);
-    }
+    const q=new URLSearchParams(window.location.search).get('q');
+    if(q){document.getElementById('track-input').value=q;setTimeout(searchTracking,80);}
   }
 }
-window.addEventListener('hashchange',route);
+window.addEventListener('popstate',route);
 window.addEventListener('DOMContentLoaded',()=>{
-  if(!window.location.hash) window.location.hash='#/';
   document.getElementById('track-input').addEventListener('keydown',e=>{if(e.key==='Enter')searchTracking();});
-  document.querySelectorAll('.modal-overlay').forEach(ov=>{
-    ov.addEventListener('click',e=>{if(e.target===ov)ov.classList.remove('open');});
-  });
+  document.querySelectorAll('.modal-overlay').forEach(ov=>{ov.addEventListener('click',e=>{if(e.target===ov)ov.classList.remove('open');});});
   document.getElementById('om-date').value=new Date().toISOString().split('T')[0];
   document.getElementById('lm-date').value=new Date().toISOString().split('T')[0];
   route();
 });
+
+// ── SUPABASE ──────────────────────────────────────────────────────────────────
+async function fetchOrders(){const{data,error}=await db.from('orders').select('*').order('created_at',{ascending:false});if(error){toast('Error al cargar pedidos','error');return[];}return data||[];}
+async function insertOrder(o){const{error}=await db.from('orders').insert(o);if(error){toast('Error al guardar pedido','error');return false;}return true;}
+async function removeOrder(id){const{error}=await db.from('orders').delete().eq('id',id);if(error){toast('Error al eliminar','error');return false;}return true;}
+async function findOrderByCode(code){const{data}=await db.from('orders').select('*').ilike('code',code).limit(1);return(data&&data.length>0)?data[0]:null;}
+async function countOrdersByProduct(product){const{count}=await db.from('orders').select('*',{count:'exact',head:true}).eq('product',product);return count||0;}
+async function fetchLeads(){const{data,error}=await db.from('leads').select('*').order('created_at',{ascending:false});if(error){toast('Error al cargar leads','error');return[];}return data||[];}
+async function insertLead(l){const{error}=await db.from('leads').insert(l);if(error){toast('Error al guardar lead','error');return false;}return true;}
+async function removeLead(id){const{error}=await db.from('leads').delete().eq('id',id);if(error){toast('Error al eliminar','error');return false;}return true;}
+
+// ── UTILS ─────────────────────────────────────────────────────────────────────
+function escHtml(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+function toast(msg,type=''){const c=document.getElementById('toast-container');const el=document.createElement('div');el.className='toast'+(type?' '+type:'');el.textContent=msg;c.appendChild(el);requestAnimationFrame(()=>requestAnimationFrame(()=>el.classList.add('show')));setTimeout(()=>{el.classList.remove('show');setTimeout(()=>el.remove(),350);},2800);}
+function setLoading(id,cols){document.getElementById(id).innerHTML=`<tr class="empty-row"><td colspan="${cols}">Cargando...</td></tr>`;}
 
 // ── TRACKING PÚBLICO ──────────────────────────────────────────────────────────
 async function searchTracking(){
@@ -567,41 +425,27 @@ async function searchTracking(){
   if(!raw){area.innerHTML='';return;}
   area.innerHTML='<div style="text-align:center;padding:32px;color:var(--text-muted)">Buscando...</div>';
   const order=await findOrderByCode(raw);
-  if(!order){
-    area.innerHTML=`<div class="not-found"><div class="nf-icon">🔍</div><p><strong>No encontramos ningún envío con ese código.</strong>Verificá los datos o contactá a tu vendedor.</p></div>`;
-    return;
-  }
+  if(!order){area.innerHTML=`<div class="not-found"><div class="nf-icon">🔍</div><p><strong>No encontramos ningún envío con ese código.</strong>Verificá los datos o contactá a tu vendedor.</p></div>`;return;}
   const prod=PRODUCTS[order.product];
   const elapsed=Math.max(0,Math.floor((new Date().setHours(0,0,0,0)-new Date(order.date+'T00:00:00'))/86400000));
-  let cur=0;
-  for(let i=0;i<prod.stages.length;i++){if(elapsed>=prod.stages[i].day)cur=i;else break;}
+  let cur=0;for(let i=0;i<prod.stages.length;i++){if(elapsed>=prod.stages[i].day)cur=i;else break;}
   const tl=prod.stages.map((s,i)=>{
     const dc=i<cur?'done':i===cur?'active':'';
     const badge=i<cur?'<span class="tl-badge done">Completado</span>':i===cur?'<span class="tl-badge active">En curso</span>':'<span class="tl-badge pending">Pendiente</span>';
-    return `<div class="tl-item"><div class="tl-dot ${dc}"></div><div class="tl-content"><div class="tl-top"><span class="tl-name">${s.name}</span>${badge}</div><div class="tl-desc">${s.desc}</div></div></div>`;
+    return`<div class="tl-item"><div class="tl-dot ${dc}"></div><div class="tl-content"><div class="tl-top"><span class="tl-name">${s.name}</span>${badge}</div><div class="tl-desc">${s.desc}</div></div></div>`;
   }).join('');
   area.innerHTML=`<div class="track-card"><div class="track-header"><div class="track-meta"><h3>${escHtml(order.client)}</h3><div class="sub">${escHtml(prod.label)}</div><span class="track-code">${escHtml(order.code)}</span></div></div><div class="track-body"><div class="timeline">${tl}</div></div></div>`;
 }
 
-// ── ADMIN AUTH ────────────────────────────────────────────────────────────────
+// ── ADMIN ─────────────────────────────────────────────────────────────────────
 function showAdminLogin(){document.getElementById('admin-login').style.display='flex';document.getElementById('admin-dashboard').style.display='none';}
 function showAdminDash(){document.getElementById('admin-login').style.display='none';document.getElementById('admin-dashboard').style.display='flex';renderAdminDash();}
-function adminLogin(){
-  if(document.getElementById('admin-pw').value==='admin2025'){adminAuthed=true;document.getElementById('admin-err').style.display='none';showAdminDash();}
-  else document.getElementById('admin-err').style.display='block';
-}
+function adminLogin(){if(document.getElementById('admin-pw').value==='admin2025'){adminAuthed=true;document.getElementById('admin-err').style.display='none';showAdminDash();}else document.getElementById('admin-err').style.display='block';}
 function adminLogout(){adminAuthed=false;document.getElementById('admin-pw').value='';showAdminLogin();}
 
-// ── ADMIN RENDER ──────────────────────────────────────────────────────────────
-function getOrderState(o){
-  const prod=PRODUCTS[o.product];
-  const elapsed=Math.max(0,Math.floor((new Date().setHours(0,0,0,0)-new Date(o.date+'T00:00:00'))/86400000));
-  return{pct:Math.min(100,Math.round(elapsed/prod.totalDays*100)),ready:elapsed>=prod.totalDays};
-}
-function sc(lbl,val,type=''){
-  const c={transit:'color:var(--blue)',ready:'color:var(--green)'};
-  return`<div class="stat-card"><div class="stat-val"${c[type]?` style="${c[type]}"`:''}}>${val}</div><div class="stat-lbl">${lbl}</div></div>`;
-}
+function getOrderState(o){const prod=PRODUCTS[o.product];const elapsed=Math.max(0,Math.floor((new Date().setHours(0,0,0,0)-new Date(o.date+'T00:00:00'))/86400000));return{pct:Math.min(100,Math.round(elapsed/prod.totalDays*100)),ready:elapsed>=prod.totalDays};}
+function sc(lbl,val,type=''){const c={transit:'color:var(--blue)',ready:'color:var(--green)'};return`<div class="stat-card"><div class="stat-val"${c[type]?` style="${c[type]}"`:''}}>${val}</div><div class="stat-lbl">${lbl}</div></div>`;}
+
 async function renderAdminDash(){
   setLoading('orders-tbody',7);
   const orders=await fetchOrders();
@@ -628,23 +472,12 @@ function renderOrdersTable(orders){
     return`<tr><td style="font-weight:600">${escHtml(o.client)}</td><td><span style="font-family:monospace;font-weight:700;color:var(--blue)">${escHtml(o.code)}</span></td><td>${prod.icon} ${escHtml(prod.label)}</td><td style="color:var(--text-muted)">${d}</td><td><div class="mini-prog"><div class="mini-prog-fill" style="width:${st.pct}%"></div></div><div style="font-size:.7rem;color:var(--text-muted);margin-top:3px">${st.pct}%</div></td><td>${pill}</td><td><div class="action-btns"><button class="act-btn copy" onclick="copyCode('${escHtml(o.code)}')">Copiar</button><button class="act-btn view" onclick="viewTracking('${escHtml(o.code)}')">Ver tracking</button><button class="act-btn del" onclick="deleteOrder('${escHtml(o.id)}')">Eliminar</button></div></td></tr>`;
   }).join('');
 }
-
-// ── ORDER MODAL ───────────────────────────────────────────────────────────────
 function openOrderModal(){document.getElementById('om-name').value='';document.getElementById('om-date').value=new Date().toISOString().split('T')[0];document.getElementById('om-product').value='';document.getElementById('om-code-box').style.display='none';document.getElementById('order-modal').classList.add('open');}
 function closeOrderModal(){document.getElementById('order-modal').classList.remove('open');}
-async function updateOrderCode(){
-  const p=document.getElementById('om-product').value;
-  if(!p){document.getElementById('om-code-box').style.display='none';return;}
-  document.getElementById('om-code-val').textContent='...';
-  document.getElementById('om-code-box').style.display='block';
-  document.getElementById('om-code-val').textContent=await generateCode(p);
-}
-async function generateCode(product){
-  const prod=PRODUCTS[product];const count=await countOrdersByProduct(product);
-  return`${prod.prefix}${String(new Date().getFullYear()).slice(2)}${String(count+1).padStart(3,'0')}`;
-}
+async function updateOrderCode(){const p=document.getElementById('om-product').value;if(!p){document.getElementById('om-code-box').style.display='none';return;}document.getElementById('om-code-val').textContent='...';document.getElementById('om-code-box').style.display='block';document.getElementById('om-code-val').textContent=await generateCode(p);}
+async function generateCode(product){const prod=PRODUCTS[product];const count=await countOrdersByProduct(product);return`${prod.prefix}${String(new Date().getFullYear()).slice(2)}${String(count+1).padStart(3,'0')}`;}
 async function saveOrder(){
-  const name=document.getElementById('om-name').value.trim();const date=document.getElementById('om-date').value;const product=document.getElementById('om-product').value;
+  const name=document.getElementById('om-name').value.trim(),date=document.getElementById('om-date').value,product=document.getElementById('om-product').value;
   if(!name||!date||!product){toast('Completá todos los campos','error');return;}
   const code=await generateCode(product);
   if(!await insertOrder({id:Date.now().toString(),client:name,date,product,code}))return;
@@ -652,18 +485,14 @@ async function saveOrder(){
 }
 async function deleteOrder(id){if(!await removeOrder(id))return;await renderAdminDash();toast('Pedido eliminado');}
 function copyCode(code){navigator.clipboard.writeText(code).then(()=>toast(`Código copiado: ${code}`,'success'));}
-function viewTracking(code){window.location.hash='#/?q='+encodeURIComponent(code);}
+function viewTracking(code){navigate('/?q='+encodeURIComponent(code));}
 
-// ── LEADS AUTH ────────────────────────────────────────────────────────────────
+// ── LEADS ─────────────────────────────────────────────────────────────────────
 function showLeadsLogin(){document.getElementById('leads-login').style.display='flex';document.getElementById('leads-dashboard').style.display='none';}
 function showLeadsDash(){document.getElementById('leads-login').style.display='none';document.getElementById('leads-dashboard').style.display='flex';renderLeadsDash();}
-function leadsLogin(){
-  if(document.getElementById('leads-pw').value==='leads2025'){leadsAuthed=true;document.getElementById('leads-err').style.display='none';showLeadsDash();}
-  else document.getElementById('leads-err').style.display='block';
-}
+function leadsLogin(){if(document.getElementById('leads-pw').value==='leads2025'){leadsAuthed=true;document.getElementById('leads-err').style.display='none';showLeadsDash();}else document.getElementById('leads-err').style.display='block';}
 function leadsLogout(){leadsAuthed=false;document.getElementById('leads-pw').value='';showLeadsLogin();}
 
-// ── LEADS RENDER ──────────────────────────────────────────────────────────────
 async function renderLeadsDash(){
   setLoading('leads-tbody',10);
   const leads=await fetchLeads();
@@ -693,17 +522,10 @@ function renderLeadsTable(leads){
     return`<tr><td style="font-weight:600">${escHtml(l.name)}</td><td>${escHtml(l.product)}</td><td>${escHtml(l.financiera)}</td><td style="color:var(--text-muted)">${escHtml(l.price||'—')}</td><td style="color:var(--text-muted)">${escHtml(l.commission||'—')}</td><td style="color:var(--text-muted)">${d}</td><td>${tp}</td><td>${sp}</td><td class="notes-cell" title="${escHtml(l.notes||'')}">${notes||'—'}</td><td><button class="act-btn del" onclick="deleteLead('${escHtml(l.id)}')">Eliminar</button></td></tr>`;
   }).join('');
 }
-
-// ── LEAD MODAL ────────────────────────────────────────────────────────────────
-function openLeadModal(){
-  ['lm-name','lm-product','lm-financiera','lm-price','lm-commission','lm-notes'].forEach(id=>document.getElementById(id).value='');
-  document.getElementById('lm-date').value=new Date().toISOString().split('T')[0];
-  document.getElementById('lm-tracking').value='no';document.getElementById('lm-status').value='feliz';
-  document.getElementById('lead-modal').classList.add('open');
-}
+function openLeadModal(){['lm-name','lm-product','lm-financiera','lm-price','lm-commission','lm-notes'].forEach(id=>document.getElementById(id).value='');document.getElementById('lm-date').value=new Date().toISOString().split('T')[0];document.getElementById('lm-tracking').value='no';document.getElementById('lm-status').value='feliz';document.getElementById('lead-modal').classList.add('open');}
 function closeLeadModal(){document.getElementById('lead-modal').classList.remove('open');}
 async function saveLead(){
-  const name=document.getElementById('lm-name').value.trim();const date=document.getElementById('lm-date').value;
+  const name=document.getElementById('lm-name').value.trim(),date=document.getElementById('lm-date').value;
   if(!name||!date){toast('Nombre y fecha son requeridos','error');return;}
   if(!await insertLead({id:Date.now().toString(),name,date,product:document.getElementById('lm-product').value.trim(),financiera:document.getElementById('lm-financiera').value.trim(),price:document.getElementById('lm-price').value.trim(),commission:document.getElementById('lm-commission').value.trim(),tracking:document.getElementById('lm-tracking').value,status:document.getElementById('lm-status').value,notes:document.getElementById('lm-notes').value.trim()}))return;
   closeLeadModal();await renderLeadsDash();toast('Lead guardado','success');
