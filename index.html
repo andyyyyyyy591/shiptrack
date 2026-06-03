@@ -107,6 +107,11 @@ a{color:var(--blue);text-decoration:none}
 .filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
 .filter-btn{padding:6px 14px;border-radius:20px;font-family:inherit;font-size:.78rem;font-weight:600;cursor:pointer;border:1.5px solid var(--border);background:var(--white);color:var(--text-muted);transition:all .2s}
 .filter-btn.active{background:var(--blue);color:#fff;border-color:var(--blue)}
+.crm-search{position:relative;margin-bottom:16px;max-width:320px}
+.crm-search input{width:100%;padding:7px 14px 7px 36px;border:1.5px solid var(--border);border-radius:20px;font-family:inherit;font-size:.82rem;color:var(--ink);background:var(--white);outline:none;transition:border-color .2s,box-shadow .2s}
+.crm-search input:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(37,99,235,.1)}
+.crm-search input::placeholder{color:var(--text-light)}
+.crm-search-icon{position:absolute;left:11px;top:50%;transform:translateY(-50%);color:var(--text-muted);pointer-events:none;display:flex;align-items:center}
 .table-wrap{background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow);border:1px solid var(--border);overflow:hidden}
 .data-table{width:100%;border-collapse:collapse;font-size:.85rem}
 .data-table th{padding:12px 16px;text-align:left;font-size:.75rem;font-weight:600;color:var(--text-muted);text-transform:uppercase;letter-spacing:.5px;border-bottom:2px solid var(--border);background:#fafbfc;white-space:nowrap}
@@ -217,6 +222,10 @@ a{color:var(--blue);text-decoration:none}
         <button class="btn-sm primary" onclick="openOrderModal()">+ Nuevo pedido</button>
       </div>
       <div class="filters" id="order-filters"></div>
+      <div class="crm-search">
+        <span class="crm-search-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></span>
+        <input type="text" id="order-search-input" placeholder="Buscar cliente o código…" oninput="setOrderSearch(this.value)" autocomplete="off">
+      </div>
       <div class="table-wrap">
         <table class="data-table">
           <thead><tr>
@@ -259,6 +268,10 @@ a{color:var(--blue);text-decoration:none}
         <button class="btn-sm primary" onclick="openLeadModal()">+ Nuevo lead</button>
       </div>
       <div class="filters" id="leads-filters"></div>
+      <div class="crm-search">
+        <span class="crm-search-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></span>
+        <input type="text" id="leads-search-input" placeholder="Buscar cliente, producto…" oninput="setLeadsSearch(this.value)" autocomplete="off">
+      </div>
       <div class="table-wrap">
         <table class="data-table">
           <thead><tr>
@@ -374,7 +387,7 @@ const PRODUCTS = {
 
 // ── SESIÓN ────────────────────────────────────────────────────────────────────
 let adminAuthed=false, leadsAuthed=false;
-let orderFilter='all', leadsStatusFilter='all', leadsTrackFilter='all';
+let orderFilter='all', orderSearch='', leadsStatusFilter='all', leadsTrackFilter='all', leadsSearch='';
 
 // ── ROUTING (sin # — URLs limpias) ────────────────────────────────────────────
 function navigate(path){
@@ -458,6 +471,7 @@ async function renderAdminDash(){
   renderOrdersTable(orders);
 }
 function setOrderFilter(k){orderFilter=k;renderAdminDash();}
+function setOrderSearch(v){orderSearch=v.trim().toLowerCase();renderOrdersTable(getOrders());}
 function renderOrdersTable(orders){
   let f=orders;
   if(orderFilter==='moto')f=orders.filter(o=>o.product==='moto');
@@ -465,6 +479,7 @@ function renderOrdersTable(orders){
   else if(orderFilter==='solar')f=orders.filter(o=>o.product==='solar');
   else if(orderFilter==='transit')f=orders.filter(o=>!getOrderState(o).ready);
   else if(orderFilter==='ready')f=orders.filter(o=>getOrderState(o).ready);
+  if(orderSearch)f=f.filter(o=>o.client.toLowerCase().includes(orderSearch)||o.code.toLowerCase().includes(orderSearch));
   const tb=document.getElementById('orders-tbody');
   if(!f.length){tb.innerHTML='<tr class="empty-row"><td colspan="7">No hay pedidos que mostrar</td></tr>';return;}
   tb.innerHTML=f.map(o=>{
@@ -508,10 +523,12 @@ async function renderLeadsDash(){
 }
 function setLeadsStatusFilter(k){leadsStatusFilter=k;renderLeadsDash();}
 function setLeadsTrackFilter(k){leadsTrackFilter=k;renderLeadsDash();}
+function setLeadsSearch(v){leadsSearch=v.trim().toLowerCase();renderLeadsTable(getLeads());}
 function renderLeadsTable(leads){
   let f=leads;
   if(leadsStatusFilter!=='all')f=f.filter(l=>l.status===leadsStatusFilter);
   if(leadsTrackFilter!=='all')f=f.filter(l=>l.tracking===leadsTrackFilter);
+  if(leadsSearch)f=f.filter(l=>l.name.toLowerCase().includes(leadsSearch)||(l.product&&l.product.toLowerCase().includes(leadsSearch))||(l.financiera&&l.financiera.toLowerCase().includes(leadsSearch))||(l.notes&&l.notes.toLowerCase().includes(leadsSearch)));
   const tb=document.getElementById('leads-tbody');
   if(!f.length){tb.innerHTML='<tr class="empty-row"><td colspan="10">No hay leads que mostrar</td></tr>';return;}
   const sl={feliz:'😊 Feliz',neutral:'😐 Neutral',molesto:'😤 Molesto',urgente:'🔥 Urgente'};
