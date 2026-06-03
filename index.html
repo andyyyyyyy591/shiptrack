@@ -388,6 +388,7 @@ const PRODUCTS = {
 // ── SESIÓN ────────────────────────────────────────────────────────────────────
 let adminAuthed=false, leadsAuthed=false;
 let orderFilter='all', orderSearch='', leadsStatusFilter='all', leadsTrackFilter='all', leadsSearch='';
+let cachedOrders=[], cachedLeads=[];
 
 // ── ROUTING (sin # — URLs limpias) ────────────────────────────────────────────
 function navigate(path){
@@ -463,7 +464,8 @@ function sc(lbl,val,type=''){const c={transit:'color:var(--blue)',ready:'color:v
 
 async function renderAdminDash(){
   setLoading('orders-tbody',7);
-  const orders=await fetchOrders();
+  cachedOrders=await fetchOrders();
+  const orders=cachedOrders;
   const s={total:orders.length,transit:orders.filter(o=>!getOrderState(o).ready).length,ready:orders.filter(o=>getOrderState(o).ready).length,moto:orders.filter(o=>o.product==='moto').length,triciclo:orders.filter(o=>o.product==='triciclo').length,solar:orders.filter(o=>o.product==='solar').length};
   document.getElementById('admin-stats').innerHTML=sc('Total pedidos',s.total)+sc('En tránsito',s.transit,'transit')+sc('Listos para entregar',s.ready,'ready')+sc('Motos',s.moto)+sc('Triciclos',s.triciclo)+sc('Kits Solares',s.solar);
   const fo=[{k:'all',l:'Todos'},{k:'moto',l:'🏍️ Motos'},{k:'triciclo',l:'🛵 Triciclos'},{k:'solar',l:'☀️ Kits Solares'},{k:'transit',l:'En tránsito'},{k:'ready',l:'Listos'}];
@@ -471,7 +473,7 @@ async function renderAdminDash(){
   renderOrdersTable(orders);
 }
 function setOrderFilter(k){orderFilter=k;renderAdminDash();}
-function setOrderSearch(v){orderSearch=v.trim().toLowerCase();renderOrdersTable(getOrders());}
+function setOrderSearch(v){orderSearch=v.trim().toLowerCase();renderOrdersTable(cachedOrders);}
 function renderOrdersTable(orders){
   let f=orders;
   if(orderFilter==='moto')f=orders.filter(o=>o.product==='moto');
@@ -512,7 +514,7 @@ function leadsLogout(){leadsAuthed=false;document.getElementById('leads-pw').val
 
 async function renderLeadsDash(){
   setLoading('leads-tbody',10);
-  const leads=await fetchLeads();
+  cachedLeads=await fetchLeads();const leads=cachedLeads;
   const s={total:leads.length,notrack:leads.filter(l=>l.tracking==='no').length,feliz:leads.filter(l=>l.status==='feliz').length,molesto:leads.filter(l=>l.status==='molesto').length,urgente:leads.filter(l=>l.status==='urgente').length};
   document.getElementById('leads-stats').innerHTML=sc('Total leads',s.total)+sc('Sin tracking enviado',s.notrack,'transit')+sc('Felices',s.feliz,'ready')+sc('Molestos',s.molesto)+sc('Urgentes',s.urgente);
   const sf=[{k:'all',l:'Todos'},{k:'feliz',l:'😊 Felices'},{k:'neutral',l:'😐 Neutrales'},{k:'molesto',l:'😤 Molestos'},{k:'urgente',l:'🔥 Urgentes'}];
@@ -523,7 +525,7 @@ async function renderLeadsDash(){
 }
 function setLeadsStatusFilter(k){leadsStatusFilter=k;renderLeadsDash();}
 function setLeadsTrackFilter(k){leadsTrackFilter=k;renderLeadsDash();}
-function setLeadsSearch(v){leadsSearch=v.trim().toLowerCase();renderLeadsTable(getLeads());}
+function setLeadsSearch(v){leadsSearch=v.trim().toLowerCase();renderLeadsTable(cachedLeads);}
 function renderLeadsTable(leads){
   let f=leads;
   if(leadsStatusFilter!=='all')f=f.filter(l=>l.status===leadsStatusFilter);
