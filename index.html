@@ -431,6 +431,7 @@ async function removeLead(id){const{error}=await db.from('leads').delete().eq('i
 
 // ── UTILS ─────────────────────────────────────────────────────────────────────
 function escHtml(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+function norm(s){return String(s||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');}
 function toast(msg,type=''){const c=document.getElementById('toast-container');const el=document.createElement('div');el.className='toast'+(type?' '+type:'');el.textContent=msg;c.appendChild(el);requestAnimationFrame(()=>requestAnimationFrame(()=>el.classList.add('show')));setTimeout(()=>{el.classList.remove('show');setTimeout(()=>el.remove(),350);},2800);}
 function setLoading(id,cols){document.getElementById(id).innerHTML=`<tr class="empty-row"><td colspan="${cols}">Cargando...</td></tr>`;}
 
@@ -473,7 +474,7 @@ async function renderAdminDash(){
   renderOrdersTable(orders);
 }
 function setOrderFilter(k){orderFilter=k;renderAdminDash();}
-function setOrderSearch(v){orderSearch=v.trim().toLowerCase();renderOrdersTable(cachedOrders);}
+function setOrderSearch(v){orderSearch=norm(v.trim());renderOrdersTable(cachedOrders);}
 function renderOrdersTable(orders){
   let f=orders;
   if(orderFilter==='moto')f=orders.filter(o=>o.product==='moto');
@@ -481,7 +482,7 @@ function renderOrdersTable(orders){
   else if(orderFilter==='solar')f=orders.filter(o=>o.product==='solar');
   else if(orderFilter==='transit')f=orders.filter(o=>!getOrderState(o).ready);
   else if(orderFilter==='ready')f=orders.filter(o=>getOrderState(o).ready);
-  if(orderSearch)f=f.filter(o=>o.client.toLowerCase().includes(orderSearch)||o.code.toLowerCase().includes(orderSearch));
+  if(orderSearch)f=f.filter(o=>norm(o.client).includes(orderSearch)||norm(o.code).includes(orderSearch));
   const tb=document.getElementById('orders-tbody');
   if(!f.length){tb.innerHTML='<tr class="empty-row"><td colspan="7">No hay pedidos que mostrar</td></tr>';return;}
   tb.innerHTML=f.map(o=>{
@@ -525,12 +526,12 @@ async function renderLeadsDash(){
 }
 function setLeadsStatusFilter(k){leadsStatusFilter=k;renderLeadsDash();}
 function setLeadsTrackFilter(k){leadsTrackFilter=k;renderLeadsDash();}
-function setLeadsSearch(v){leadsSearch=v.trim().toLowerCase();renderLeadsTable(cachedLeads);}
+function setLeadsSearch(v){leadsSearch=norm(v.trim());renderLeadsTable(cachedLeads);}
 function renderLeadsTable(leads){
   let f=leads;
   if(leadsStatusFilter!=='all')f=f.filter(l=>l.status===leadsStatusFilter);
   if(leadsTrackFilter!=='all')f=f.filter(l=>l.tracking===leadsTrackFilter);
-  if(leadsSearch)f=f.filter(l=>l.name.toLowerCase().includes(leadsSearch)||(l.product&&l.product.toLowerCase().includes(leadsSearch))||(l.financiera&&l.financiera.toLowerCase().includes(leadsSearch))||(l.notes&&l.notes.toLowerCase().includes(leadsSearch)));
+  if(leadsSearch)f=f.filter(l=>norm(l.name).includes(leadsSearch)||norm(l.product).includes(leadsSearch)||norm(l.financiera).includes(leadsSearch)||norm(l.notes).includes(leadsSearch));
   const tb=document.getElementById('leads-tbody');
   if(!f.length){tb.innerHTML='<tr class="empty-row"><td colspan="10">No hay leads que mostrar</td></tr>';return;}
   const sl={feliz:'😊 Feliz',neutral:'😐 Neutral',molesto:'😤 Molesto',urgente:'🔥 Urgente'};
